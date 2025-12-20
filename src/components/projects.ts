@@ -25,3 +25,10 @@ export const floslabs: Project = {
     tags.deno
   ],
 }
+export const kleinanzeigenplus: Project = {
+  title: 'KleinanzeigenPlus',
+  description: 'A desktop app of the german website "Kleinanzeigen" with extra features.',
+  viewMoreUrl: 'kleinanzeigenplus',
+  image: "",
+  tags: [],
+}

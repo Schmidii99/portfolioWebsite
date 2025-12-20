@@ -1,32 +1,38 @@
 <script setup lang="ts">
 import type Project from '@/types/Project.ts';
-import type { PropType } from 'vue'
+import { onBeforeMount, type PropType } from 'vue'
 import TagDisplay from '@/components/TagDisplay.vue'
 import ProjectLink from '@/components/ProjectLink.vue'
 import router from '@/router'
+import { useFilterStore } from '@/stores/filterStore.ts'
 
-defineProps({
+const filterStore = useFilterStore();
+
+const props = defineProps({
   project: {type: Object as PropType<Project>, required: true}
+});
+
+onBeforeMount(() => {
+  if (props.project?.image == "none" || props.project?.image.length == 0)
+    props.project.image = "none.png";
 });
 </script>
 
 <template>
-  <div class="bg-white rounded-lg h-fit flex flex-col hover:cursor-pointer text-black"
+  <div class="bg-white rounded-lg h-fit flex flex-col hover:cursor-pointer text-black mr-4"
        @click="() => {
          router.push('/project/' + project.viewMoreUrl);
        }"
-  >
-    <img v-if="project.image != 'none'" :src="'src/assets/projectIcons/' + project.image" alt="Project Image" class="h-80 w-full rounded-t-lg object-cover"/>
-    <div v-if="project.image == 'none'" class="h-80 w-full rounded-t-lg object-cover">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder-git2-icon lucide-folder-git-2"><path d="M18 19a5 5 0 0 1-5-5v8"/><path d="M9 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v5"/><circle cx="13" cy="12" r="2"/><circle cx="20" cy="19" r="2"/></svg>
-    </div>
+       v-show="filterStore.isProjectActive(project)">
+
+    <img :src="'src/assets/projectIcons/' + project.image" alt="Project Image" class="h-80 w-full rounded-t-lg object-cover"/>
 
     <div class="flex flex-col m-2">
       <h3 class="text-xl font-bold mb-2 text-slate-900">{{ project.title }}</h3>
-      <p class="text-slate-700">{{ project.description }}</p>
+      <p class="text-slate-700 text-base h-12 text-ellipsis">{{ project.description }}</p>
     </div>
 
-    <div class="m-4 flex flex-row space-x-2 w-full overflow-scroll">
+    <div class="m-4 flex flex-row space-x-2 w-full overflow-scroll h-6">
       <TagDisplay v-for="tag in project.tags" :tag="tag" />
     </div>
 
