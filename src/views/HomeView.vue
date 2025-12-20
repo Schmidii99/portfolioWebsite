@@ -14,6 +14,7 @@ import ProjectsOverview from '@/components/ProjectsOverview.vue'
     <TechnologiesOverview />
     <divider class="bg-gray-800" />
     <h3 class="text-2xl mt-16 mb-4">Projects Overview</h3>
+    <p class="text-gray-500">Click on a project to get more information about it.</p>
     <ProjectsOverview />
   </main>
 </template>
