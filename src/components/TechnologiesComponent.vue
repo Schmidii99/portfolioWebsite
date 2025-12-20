@@ -15,7 +15,10 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <div class="my-8 flex flex-row">
-    <TechnologyIcon v-for="t in technologies" :icon="t.icon" :name="t.name"/>
+  <div class="my-6 flex flex-row space-x-4">
+    <TechnologyIcon v-for="t in technologies"
+                    :name="t.name"
+                    :icon="t.icon"
+                    :click-callback="() => {}"/>
   </div>
 </template>
