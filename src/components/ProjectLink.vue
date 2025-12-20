@@ -8,9 +8,11 @@ defineProps({
 
 <template>
   <a
+    target="_blank"
     v-if="!disabled"
     :href="link"
     class="flex flex-row h-full items-center space-x-1 text-md justify-center py-2 px-4 border rounded-2xl hover:text-blue-400"
+    @click.stop
   >
     <span>{{ text }}</span>
     <slot />

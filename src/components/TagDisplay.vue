@@ -12,9 +12,11 @@ defineProps({
 </script>
 
 <template>
-    <span
-      class="bg-white rounded-full px-2 py-1 text-black text-xs font-medium hover:underline border border-gray-300"
+    <a
+      @click.stop
+      target="_blank"
+      :class="'bg-white rounded-full px-2 py-1 text-black text-xs font-medium border border-gray-300 ' + (tag.url ? 'hover:underline' : 'hover:cursor-default')"
       >
         {{ tag.name }}
-    </span>
+    </a>
 </template>
