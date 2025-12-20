@@ -18,13 +18,14 @@ export const floslabs: Project = {
   viewMoreUrl: 'floslabs',
   sourceCode: "https://github.com/Schmidii99/Brettspiele.io",
   url: "https://floslabs.de",
-  image: "example.png",
+  image: "floslabs.jpeg",
   tags: [
     tags.vue,
     tags.redis,
     tags.deno
   ],
 }
+
 export const kleinanzeigenplus: Project = {
   title: 'KleinanzeigenPlus',
   description: 'A desktop app of the german website "Kleinanzeigen" with extra features.',
