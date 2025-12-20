@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Divider from '@/components/Divider.vue'
-import TechnologiesComponent from '@/components/TechnologiesComponent.vue'
+import TechnologiesOverview from '@/components/TechnologiesOverview.vue'
+import ProjectsOverview from '@/components/ProjectsOverview.vue'
 </script>
 
 <template>
@@ -10,7 +11,9 @@ import TechnologiesComponent from '@/components/TechnologiesComponent.vue'
     <h3 class="text-2xl mt-16 mb-4">Technologies</h3>
     <p class="text-gray-500">Click on a icon to filter for all projects that used it.</p>
     <divider class="bg-gray-800" />
-    <TechnologiesComponent />
+    <TechnologiesOverview />
     <divider class="bg-gray-800" />
+    <h3 class="text-2xl mt-16 mb-4">Projects Overview</h3>
+    <ProjectsOverview />
   </main>
 </template>
