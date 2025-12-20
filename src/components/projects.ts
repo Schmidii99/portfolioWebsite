@@ -16,7 +16,7 @@ export const floslabs: Project = {
   title: 'FlosLabs.de Game Website',
   description: 'A website to easily play board games with friends online.',
   viewMoreUrl: 'floslabs',
-  sourceCode: "",
+  sourceCode: "https://github.com/Schmidii99/Brettspiele.io",
   url: "https://floslabs.de",
   image: "example.png",
   tags: [
