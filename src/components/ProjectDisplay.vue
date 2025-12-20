@@ -19,16 +19,16 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <div class="bg-white rounded-lg h-fit flex flex-col hover:cursor-pointer text-black mr-4"
+  <div class="bg-white rounded-3xl h-fit flex flex-col hover:cursor-pointer text-black mr-4"
        @click="() => {
          router.push('/project/' + project.viewMoreUrl);
        }"
        v-show="filterStore.isProjectActive(project)">
 
-    <img :src="'src/assets/projectIcons/' + project.image" alt="Project Image" class="h-80 w-full rounded-t-lg object-cover"/>
+    <img :src="'src/assets/projectIcons/' + project.image" alt="Project Image" class="h-80 w-full rounded-t-3xl object-cover"/>
 
     <div class="flex flex-col m-2">
-      <h3 class="text-xl font-bold mb-2 text-slate-900">{{ project.title }}</h3>
+      <h3 class="text-xl font-bold mb-2 text-slate-900 font-[Murecho]">{{ project.title }}</h3>
       <p class="text-slate-700 text-base h-12 text-ellipsis">{{ project.description }}</p>
     </div>
 
