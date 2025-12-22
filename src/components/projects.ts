@@ -19,11 +19,9 @@ export const floslabs: Project = {
   sourceCode: "https://github.com/Schmidii99/Brettspiele.io",
   url: "https://floslabs.de",
   image: "floslabs.jpeg",
-  tags: [
-    tags.vue,
-    tags.redis,
-    tags.deno
-  ],
+  tags: [tags.vue, tags.redis, tags.deno],
+  images: ["floslabs1.jpeg", "floslabs2.jpeg", "floslabs3.jpeg", 'floslabs4.jpeg', "floslabs5.jpeg"],
+  paragraphs: []
 }
 
 export const kleinanzeigenplus: Project = {

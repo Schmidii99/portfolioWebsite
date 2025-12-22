@@ -8,4 +8,6 @@ export default interface Project {
   sourceCode?: string,
   tags: Tag[],
   image: string,
+  images?: string[],
+  paragraphs?: string[],
 }

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { getImageUrl, getProjectImageUrl } from '@/helper.ts'
 
 const props = defineProps({
@@ -24,7 +24,7 @@ const goToNext = () => {
         <img
           :src="images.length != 0 ? getProjectImageUrl(images[currentIndex]!) : getImageUrl('noimage.svg')"
           :alt="'Slide ' + (currentIndex + 1)"
-          class="w-full h-full object-cover"
+          :class="'w-full h-full ' + (images.length != 0 ? 'object-cover' : '')"
         />
 
         <div class="absolute top-4 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm font-medium">

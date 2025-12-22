@@ -2,21 +2,34 @@
 import ImageViewer from '@/components/ImageViewer.vue';
 import { onBeforeMount } from 'vue';
 import * as projects from "@/components/projects.ts";
+import { useRouter } from 'vue-router'
+import type Project from '@/types/Project.ts'
+import { floslabs } from '@/components/projects.ts'
+
+const router = useRouter();
+let projectsData: Project | null = null;
 
 onBeforeMount(() => {
+  const currentProjectName = router.currentRoute.value.params.projectName as string;
 
-});
+  Object.entries(projects).find((p) => {
+    if (p[0] === currentProjectName) {
+      projectsData = p[1] as Project;
+    }
+  });
+
+  projectsData = floslabs;
+
+  if (!projectsData)
+    router.replace({ name: 'NotFound'});
+
+  console.log(projectsData)
+})
 
 </script>
 
 <template>
-  <ImageViewer :images="[
-    'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=800&h=600&fit=crop'
-  ]" />
+  <ImageViewer :images="projectsData?.images" />
 </template>
 
 <style scoped>
