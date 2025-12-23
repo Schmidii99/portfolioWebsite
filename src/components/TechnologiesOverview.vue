@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import TechnologyIcon from '@/components/TechnologyIcon.vue'
-import * as tags from './tags.ts'
+import * as tags from '@/data/tags.ts'
 </script>
 
 <template>

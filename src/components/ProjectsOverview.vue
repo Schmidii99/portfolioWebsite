@@ -1,9 +1,6 @@
 <script setup lang="ts">
-import * as projects from './projects.ts'
+import * as projects from '@/data/projects.ts'
 import ProjectDisplay from '@/components/ProjectDisplay.vue'
-import { useFilterStore } from '@/stores/filterStore.ts'
-
-const tagFilter = useFilterStore();
 </script>
 
 <template>

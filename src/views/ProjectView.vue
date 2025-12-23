@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ImageViewer from '@/components/ImageViewer.vue';
 import { onBeforeMount } from 'vue'
-import * as projects from "@/components/projects.ts";
+import * as projects from "@/data/projects.ts";
 import { useRouter } from 'vue-router'
 import type Project from '@/types/Project.ts'
 

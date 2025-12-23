@@ -1,5 +1,5 @@
 import type Project from '@/types/Project.ts'
-import * as tags from '@/components/tags.ts'
+import * as tags from '@/data/tags.ts'
 
 export const protfolioWebsite: Project = {
   title: 'Project Portfolio Website',
