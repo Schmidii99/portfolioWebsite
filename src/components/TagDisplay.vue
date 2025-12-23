@@ -15,6 +15,7 @@ defineProps({
     <a
       @click.stop
       target="_blank"
+      :href="tag.url"
       :class="'bg-white rounded-full px-2 py-1 text-black text-xs font-medium border border-gray-300 ' + (tag.url ? 'hover:underline' : 'hover:cursor-default')"
       >
         {{ tag.name }}
