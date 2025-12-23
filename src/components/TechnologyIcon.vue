@@ -2,6 +2,7 @@
 import { onMounted, type PropType, ref, type Ref } from 'vue'
 import type Tag from '@/types/Tag.ts'
 import { useFilterStore } from '@/stores/filterStore.ts'
+import { getImageUrl, ImageTypes } from '@/helper.ts'
 
 const props = defineProps({
   tag: {type: Object as PropType<Tag>, required: true}
@@ -29,7 +30,7 @@ onMounted(() => {
   @click="handleClick">
     <div class="relative">
       <img
-        :src="`src/assets/icons/${tag.icon}.svg`"
+        :src="getImageUrl(tag.icon, ImageTypes.ICON)"
         :alt="tag.name"
         class="w-12 h-12 relative mx-4 my-2 text-white fill-white stroke-white" />
       <!--<div class="w-12 h-12 absolute top-0 left-0 z-10 test mx-4 my-2"></div>-->

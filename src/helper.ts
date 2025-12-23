@@ -1,13 +1,15 @@
-export function getImageUrl(assetPath: string): string {
+export enum ImageTypes {
+  COVER = "projectIcons",
+  PROJECT = "projectImages",
+  ICON = "icons",
+}
+
+export function getImageUrl(assetPath: string, type: ImageTypes | null = null): string {
   if (assetPath.includes("http")) {
     return assetPath;
   }
-  return new URL("/src/assets/" + assetPath, import.meta.url).href
-}
+  if (!type)
+    return "/" + assetPath;
 
-export function getProjectImageUrl(imagePath: string): string {
-  if (imagePath.includes("http")) {
-    return imagePath;
-  }
-  return getImageUrl(`projectImages/${imagePath}`);
+  return `/${type}/${assetPath}`;
 }

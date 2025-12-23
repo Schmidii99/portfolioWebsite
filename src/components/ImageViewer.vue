@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue'
-import { getImageUrl, getProjectImageUrl } from '@/helper.ts'
+import { getImageUrl, ImageTypes } from '@/helper.ts'
 
 const props = defineProps({
   images: { type: Array<string>, default: [] }
@@ -22,9 +22,9 @@ const goToNext = () => {
     <div class="relative w-full">
       <div class="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-slate-700">
         <img
-          :src="images.length != 0 ? getProjectImageUrl(images[currentIndex]!) : getImageUrl('noimage.svg')"
+          :src="images.length != 0 ? getImageUrl(images[currentIndex]!, ImageTypes.PROJECT) : getImageUrl('noimage.svg')"
           :alt="'Slide ' + (currentIndex + 1)"
-          :class="'w-full h-full ' + (images.length != 0 ? 'object-cover' : '')"
+          class="w-full h-full object-contain"
         />
 
         <div class="absolute top-4 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm font-medium">
