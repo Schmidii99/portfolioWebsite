@@ -13,3 +13,15 @@ export function getImageUrl(assetPath: string, type: ImageTypes | null = null): 
 
   return `/${type}/${assetPath}`;
 }
+
+export async function getMarkdownFileContent(fileName: string): Promise<string> {
+  try {
+    const response = await fetch(`/projectMarkdown/floslabs.md`)
+    const mdString = await response.text()
+    console.log("Fetched markdown string:", mdString);
+    return mdString;
+  } catch (error) {
+    console.error('Failed to load markdown:', error)
+    return "";
+  }
+}

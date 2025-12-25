@@ -18,7 +18,7 @@ const goToNext = () => {
 </script>
 
 <template>
-  <div class="flex justify-center w-full p-8">
+  <div class="flex justify-center w-full">
     <div class="relative w-full">
       <div class="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-slate-700">
         <img

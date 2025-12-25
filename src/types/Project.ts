@@ -9,5 +9,5 @@ export default interface Project {
   tags: Tag[],
   image: string,
   images?: string[],
-  paragraphs?: string[],
+  markdownFile?: string,
 }

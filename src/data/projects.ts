@@ -20,8 +20,8 @@ export const floslabs: Project = {
   url: "https://floslabs.de",
   image: "floslabs.jpeg",
   tags: [tags.vue, tags.redis, tags.deno],
-  images: ["floslabs1.jpeg", "floslabs2.jpeg", "floslabs3.jpeg", 'floslabs4.jpeg', "floslabs5.jpeg"],
-  paragraphs: []
+  images: ["floslabs1.jpeg", "floslabs3.jpeg", "floslabs2.jpeg", 'floslabs4.jpeg', "floslabs5.jpeg"],
+  markdownFile: "floslabs.md",
 }
 
 export const kleinanzeigenplus: Project = {
