@@ -3,11 +3,12 @@ import type Project from '@/types/Project.ts'
 import { type PropType } from 'vue'
 import TagDisplay from '@/components/TagDisplay.vue'
 import ProjectLink from '@/components/ProjectLink.vue'
-import router from '@/router'
 import { useFilterStore } from '@/stores/filterStore.ts'
 import { doesProjectHaveDetails, getImageUrl, getProjectLink, ImageTypes } from '@/helper.ts'
+import { useRouter } from 'vue-router'
 
-const filterStore = useFilterStore()
+const filterStore = useFilterStore();
+const router = useRouter();
 
 const props = defineProps({
   project: { type: Object as PropType<Project>, required: true },
@@ -29,7 +30,8 @@ function getCoverImage(): string {
     :class="'bg-white rounded-3xl h-fit flex flex-col text-black mr-4 ' + (doesProjectHaveDetails(project) ? 'hover:cursor-pointer' : '')"
     @click="
       async () => {
-        await router.push(getProjectLink(project));
+        if (doesProjectHaveDetails(project))
+          await router.push(getProjectLink(project))
       }
     "
     v-show="filterStore.isProjectActive(project)"
@@ -50,7 +52,7 @@ function getCoverImage(): string {
     </div>
 
     <div class="flex flex-row m-4 justify-between">
-      <ProjectLink v-if="project.url" :link="project.url || ''">
+      <ProjectLink v-if="project.url && project.url !== 'selfhosted'" :link="project.url || ''">
         <span>View Page</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -67,6 +69,9 @@ function getCoverImage(): string {
           <path d="M10 14 21 3" />
           <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
         </svg>
+      </ProjectLink>
+      <ProjectLink v-if="project.url && project.url === 'selfhosted'" link="" text="Self Hosted" :disabled="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-package-icon lucide-package"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><polyline points="3.29 7 12 12 20.71 7"/><path d="m7.5 4.27 9 5.15"/></svg>
       </ProjectLink>
 
       <ProjectLink v-if="project.sourceCode" :link="project.sourceCode" text="View Code">

@@ -42,7 +42,7 @@ onBeforeMount(() => {
     <div class="flex flex-row mb-8 space-x-2">
       <TagDisplay v-for="tag in projectsData?.tags || []" :tag="tag" />
     </div>
-    <ImageViewer :images="projectsData?.images || []" />
+    <ImageViewer v-if="projectsData.images && projectsData.images.length > 0" :images="projectsData.images" />
     <MardownComponent v-if="markdownFileContent" :source="markdownFileContent" />
   </div>
   <NotFoundView v-if="!projectsData" />
