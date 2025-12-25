@@ -26,23 +26,25 @@ onMounted(() => {
 </script>
 
 <template>
-  <div :class="'flex flex-col justify-center h-full aspect-square custom-border hover:cursor-pointer ' + (active ? 'custom-border-active' : '')"
+  <div :class="'flex flex-col justify-center items-center w-24 h-24 aspect-square custom-border hover:cursor-pointer ' + (active ? 'custom-border-active' : '')"
   @click="handleClick">
-    <div class="relative">
+    <div class="w-12 h-12 mb-2 flex justify-center items-center">
       <img
         :src="getImageUrl(tag.icon, ImageTypes.ICON)"
         :alt="tag.name"
-        class="w-12 h-12 relative mx-4 my-2 text-white fill-white stroke-white" />
-      <!--<div class="w-12 h-12 absolute top-0 left-0 z-10 test mx-4 my-2"></div>-->
+        class="w-full h-full text-white fill-white stroke-white" />
     </div>
+
+
     <h6 class="text-center">{{tag.name}}</h6>
   </div>
 </template>
 
 <style scoped>
 img {
-  -webkit-filter: invert(1);
-  filter: invert(1);
+  -webkit-filter: invert(1) grayscale(1) contrast(100%);
+  filter: invert(1) grayscale(1) contrast(100%) ;
+  mix-blend-mode: multiply;
 }
 
 .custom-border {
