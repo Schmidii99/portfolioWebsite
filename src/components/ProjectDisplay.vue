@@ -5,7 +5,7 @@ import TagDisplay from '@/components/TagDisplay.vue'
 import ProjectLink from '@/components/ProjectLink.vue'
 import router from '@/router'
 import { useFilterStore } from '@/stores/filterStore.ts'
-import { getImageUrl, ImageTypes } from '@/helper.ts'
+import { doesProjectHaveDetails, getImageUrl, getProjectLink, ImageTypes } from '@/helper.ts'
 
 const filterStore = useFilterStore()
 
@@ -13,24 +13,29 @@ const props = defineProps({
   project: { type: Object as PropType<Project>, required: true },
 })
 
-onBeforeMount(() => {
-  if (props.project?.image == 'none' || props.project?.image.length == 0)
-    props.project.image = 'none.png'
-})
+function getCoverImage(): string {
+  if (props.project.cover)
+    return getImageUrl(props.project.cover, ImageTypes.COVER);
+
+  if (props.project.images && props.project.images.length > 0)
+    return getImageUrl(props.project.images[0]!, ImageTypes.PROJECT);
+
+  return getImageUrl('none.png', ImageTypes.COVER);
+}
 </script>
 
 <template>
   <div
-    class="bg-white rounded-3xl h-fit flex flex-col hover:cursor-pointer text-black mr-4"
+    :class="'bg-white rounded-3xl h-fit flex flex-col text-black mr-4 ' + (doesProjectHaveDetails(project) ? 'hover:cursor-pointer' : '')"
     @click="
-      () => {
-        router.push('/project/' + project.viewMoreUrl)
+      async () => {
+        await router.push(getProjectLink(project));
       }
     "
     v-show="filterStore.isProjectActive(project)"
   >
     <img
-      :src="getImageUrl(project.image, ImageTypes.COVER)"
+      :src="getCoverImage()"
       alt="Project Image"
       class="h-80 w-full rounded-t-3xl object-cover"
     />
@@ -57,7 +62,6 @@ onBeforeMount(() => {
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
-          class="lucide lucide-external-link-icon lucide-external-link"
         >
           <path d="M15 3h6v6" />
           <path d="M10 14 21 3" />
@@ -75,7 +79,6 @@ onBeforeMount(() => {
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
-          class="lucide lucide-code-icon lucide-code"
         >
           <path d="m16 18 6-6-6-6" />
           <path d="m8 6-6 6 6 6" />
@@ -84,8 +87,9 @@ onBeforeMount(() => {
       <ProjectLink v-if="!project.sourceCode" link="" text="Not Open Source" :disabled="true" />
 
       <RouterLink
+        v-if="doesProjectHaveDetails(project)"
         class="flex flex-row h-full items-center space-x-1 text-md justify-center py-2 px-4 border rounded-2xl hover:text-blue-400"
-        :to="'/project/' + project.viewMoreUrl"
+        :to="getProjectLink(project)"
         text="About"
       />
     </div>

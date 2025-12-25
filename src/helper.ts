@@ -1,3 +1,5 @@
+import type Project from '@/types/Project.ts'
+
 export enum ImageTypes {
   COVER = "projectIcons",
   PROJECT = "projectImages",
@@ -16,7 +18,7 @@ export function getImageUrl(assetPath: string, type: ImageTypes | null = null): 
 
 export async function getMarkdownFileContent(fileName: string): Promise<string> {
   try {
-    const response = await fetch(`/projectMarkdown/floslabs.md`)
+    const response = await fetch(`/projectMarkdown/${fileName}`)
     const mdString = await response.text()
     console.log("Fetched markdown string:", mdString);
     return mdString;
@@ -24,4 +26,15 @@ export async function getMarkdownFileContent(fileName: string): Promise<string> 
     console.error('Failed to load markdown:', error)
     return "";
   }
+}
+
+export function getProjectLink(project: Project): string {
+  if (!project.markdownFile) {
+    return "/project/" + project.title.replace(/[\W_]+/g,"-").toLowerCase();
+  }
+  return "/project/" + project.markdownFile?.substring(0, project.markdownFile.lastIndexOf('.'));
+}
+
+export function doesProjectHaveDetails(project: Project): boolean {
+  return project.markdownFile !== undefined || (project.images?.length || 0) > 0;
 }
