@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type Project from '@/types/Project.ts'
-import { onBeforeMount, type PropType } from 'vue'
+import { type PropType } from 'vue'
 import TagDisplay from '@/components/TagDisplay.vue'
 import ProjectLink from '@/components/ProjectLink.vue'
 import router from '@/router'
@@ -46,7 +46,7 @@ function getCoverImage(): string {
     </div>
 
     <div class="m-4 flex flex-row space-x-2 w-full overflow-scroll h-6">
-      <TagDisplay v-for="tag in project.tags" :tag="tag" />
+      <TagDisplay v-for="tag in project.tags.sort((a, b) => a.name.localeCompare(b.name))" :tag="tag" />
     </div>
 
     <div class="flex flex-row m-4 justify-between">
