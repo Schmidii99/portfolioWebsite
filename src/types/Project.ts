@@ -9,4 +9,5 @@ export default interface Project {
   cover?: string, // if no cover is provided, the first image from images will be used
   images?: string[],
   markdownFile?: string, // you can also use a link to a markdown file (e.g. from a github repo)
+  featured?: boolean,
 }

@@ -18,6 +18,7 @@ export const floslabs: Project = {
   tags: [t.vue, t.redis, t.deno, t.docker, t.nginx],
   images: ["floslabs1.jpeg", "floslabs3.jpeg", "floslabs2.jpeg", 'floslabs4.jpeg', "floslabs5.jpeg"],
   markdownFile: "floslabs.md",
+  featured: true
 }
 
 export const kleinanzeigenPlus: Project = {
@@ -25,6 +26,7 @@ export const kleinanzeigenPlus: Project = {
   description: 'A desktop app of the german website "Kleinanzeigen" with extra features.',
   tags: [t.sveltekit, t.tauri, t.rust, t.tailwindcss, t.sqlite],
   images: ["kp1.png", "kp2.png", "kp3.png", "kp4.png", "kp5.png", "kp6.png", "kp7.png"],
+  featured: true
 }
 
 export const mandelbrot: Project = {

@@ -6,6 +6,7 @@ import ProjectLink from '@/components/ProjectLink.vue'
 import { useFilterStore } from '@/stores/filterStore.ts'
 import { doesProjectHaveDetails, getImageUrl, getProjectLink, ImageTypes } from '@/helper.ts'
 import { useRouter } from 'vue-router'
+import FeaturedTag from '@/components/FeaturedTag.vue'
 
 const filterStore = useFilterStore();
 const router = useRouter();
@@ -27,7 +28,7 @@ function getCoverImage(): string {
 
 <template>
   <div
-    :class="'bg-white rounded-3xl h-fit flex flex-col text-black mr-4 ' + (doesProjectHaveDetails(project) ? 'hover:cursor-pointer' : '')"
+    :class="'bg-white rounded-3xl relative ' + (doesProjectHaveDetails(project) ? 'hover:cursor-pointer' : '')"
     @click="
       async () => {
         if (doesProjectHaveDetails(project))
@@ -36,6 +37,8 @@ function getCoverImage(): string {
     "
     v-show="filterStore.isProjectActive(project)"
   >
+    <FeaturedTag v-show="project.featured" />
+
     <img
       :src="getCoverImage()"
       alt="Project Image"
