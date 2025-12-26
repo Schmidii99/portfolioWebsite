@@ -6,6 +6,7 @@ export const protfolioTemplate: Project = {
   description: 'A website to showcase my projects and technologies that I have worked with.',
   tags: [t.vue, t.tailwindcss],
   images: ["portfolio.png"],
+  sourceCode: "https://github.com/Schmidii99/portfolioWebsite"
 }
 
 export const floslabs: Project = {
@@ -31,13 +32,14 @@ export const mandelbrot: Project = {
   description: 'A desktop app displaying the Mandelbrot set using C++ and SFML.',
   tags: [t.cpp, t.sfml, t.conan, t.cmake],
   images: ["mandelbrot1.png", "mandelbrot2.png", "mandelbrot3.png", "mandelbrot4.png", "mandelbrot5.png"],
-  sourceCode: "https://github.com/Schmidii99/Cpp_Mandelbrot"
+  sourceCode: "https://github.com/Schmidii99/Cpp_Mandelbrot",
+  markdownFile: "https://raw.githubusercontent.com/Schmidii99/Cpp_Mandelbrot/refs/heads/main/README.md"
 }
 
 export const tetris: Project = {
   title: 'Tetris in WinForms',
   tags: [t.csharp],
-  description: '',
+  description: 'Tetris game made with Windows Forms in C#.',
   sourceCode: "https://github.com/Schmidii99/WindowsForms-Tetris",
   images: ["tetris1.png", "tetris2.png", "tetris3.png"]
 }
@@ -55,12 +57,16 @@ export const pokedex: Project = {
   title: 'Pokedex app',
   description: 'I used this project to learn SvelteKit by building a simple Pokedex app. For the data I used a public api.',
   tags: [],
+  images: ["pokedex1.png", "pokedex2.png", "pokedex3.png"],
+  sourceCode: "https://github.com/Schmidii99/pokedex-sveltekit"
 }
 
 export const trainingsDary: Project = {
   title: 'Trainings Diary app in Java',
   description: '',
   tags: [t.java, t.postgres],
+  sourceCode: "https://github.com/Schmidii99/TrainingsDiary/tree/main",
+  images: ["td1.png", "td2.png", "td3.png", "td4.png"]
 }
 
 export const eloCompare: Project = {
@@ -71,20 +77,24 @@ export const eloCompare: Project = {
   sourceCode: "https://github.com/Schmidii99/EloCompare",
   images: ["elo1.png", "elo2.png", "elo3.png", "elo4.png", "elo5.png"],
   cover: "elocompare.png",
+  markdownFile: "https://raw.githubusercontent.com/Schmidii99/EloCompare/refs/heads/main/README.md"
 }
 
 export const ultimateTicTacToe: Project = {
   title: 'Ultimate Tic Tac Toe Game',
-  description: 'Ultimate tic tac toe game in java to train a neural network and learn about reinforcement learning',
+  description: 'Ultimate tic tac toe game in c# using WinForms.',
   tags: [],
-  images: ["utt1.png", "utt2.png", "utt3.png", "utt4.png", "utt5.png"]
+  images: ["utt1.png", "utt2.png", "utt3.png", "utt4.png", "utt5.png"],
+  sourceCode: "https://github.com/Schmidii99/TicTacToe-Ultimate"
 }
 
 export const rplace: Project = {
   title: 'Reddit Place 2023',
   description: 'Dataanalysis for Reddit Place 2023 event.',
-  tags: [],
-  images: ["r-place1.webp", "r-place1.png"]
+  tags: [t.python, t.sqlite],
+  images: ["r-place1.webp", "r-place2.png"],
+  sourceCode: "https://github.com/Schmidii99/redditPlace2023",
+  markdownFile: "rPlace.md",
 }
 
 /*export const discordBot: Project = {
