@@ -28,7 +28,7 @@ function getCoverImage(): string {
 
 <template>
   <div
-    :class="'bg-white rounded-3xl relative ' + (doesProjectHaveDetails(project) ? 'hover:cursor-pointer' : '')"
+    :class="'bg-white rounded-3xl h-fit flex flex-col text-black mr-4 relative ' + (doesProjectHaveDetails(project) ? 'hover:cursor-pointer' : '')"
     @click="
       async () => {
         if (doesProjectHaveDetails(project))
