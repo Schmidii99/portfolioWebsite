@@ -28,22 +28,31 @@ onBeforeMount(() => {
 
   projectsData = p as Project;
 
-  if (projectsData.markdownFile) {
+  if (projectsData.markdownFile && !projectsData.markdownFile.startsWith("http")) {
     getMarkdownFileContent(projectsData.markdownFile).then((res) => {
       markdownFileContent.value = res;
     });
+  } else if (projectsData.markdownFile && projectsData.markdownFile.startsWith("http")) {
+    fetch(projectsData.markdownFile)
+      .then((response) => response.text())
+      .then((data) => {
+        markdownFileContent.value = data;
+      });
   }
-})
+});
 </script>
 
 <template>
   <div v-if="projectsData">
+    <RouterLink to="/" class="text-slate-600 hover:text-blue-800 hover:cursor-pointer hover:underline flex flex-row items-center">
+      ← Back to the projects
+    </RouterLink>
     <h1 class="font-[BBH_Bogle] text-6xl mb-2">{{ projectsData?.title || 'Project' }}</h1>
     <div class="flex flex-row mb-8 space-x-2">
       <TagDisplay v-for="tag in projectsData?.tags || []" :tag="tag" />
     </div>
     <ImageViewer v-if="projectsData.images && projectsData.images.length > 0" :images="projectsData.images" />
-    <MardownComponent v-if="markdownFileContent" :source="markdownFileContent" />
+    <MardownComponent v-if="markdownFileContent" :source="markdownFileContent"/>
   </div>
   <NotFoundView v-if="!projectsData" />
 </template>

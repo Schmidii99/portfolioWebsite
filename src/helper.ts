@@ -29,7 +29,7 @@ export async function getMarkdownFileContent(fileName: string): Promise<string> 
 }
 
 export function getProjectLink(project: Project): string {
-  if (!project.markdownFile) {
+  if (!project.markdownFile || project.markdownFile.startsWith("http")) {
     return "/project/" + project.title.replace(/[\W_]+/g,"-").toLowerCase();
   }
   return "/project/" + project.markdownFile?.substring(0, project.markdownFile.lastIndexOf('.'));
