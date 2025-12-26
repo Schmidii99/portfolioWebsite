@@ -31,7 +31,7 @@ export const mandelbrot: Project = {
   title: 'Mandelbrot in C++',
   description: 'A desktop app displaying the Mandelbrot set using C++ and SFML.',
   tags: [t.cpp, t.sfml, t.conan, t.cmake],
-  images: ["mandelbrot1.png", "mandelbrot2.png", "mandelbrot3.png", "mandelbrot4.png", "mandelbrot5.png"],
+  cover: "mandelbrot1.png",
   sourceCode: "https://github.com/Schmidii99/Cpp_Mandelbrot",
   markdownFile: "https://raw.githubusercontent.com/Schmidii99/Cpp_Mandelbrot/refs/heads/main/README.md"
 }
@@ -75,7 +75,6 @@ export const eloCompare: Project = {
   tags: [t.docker, t.fastapi, t.python, t.vue, t.tailwindcss],
   url: "selfhosted",
   sourceCode: "https://github.com/Schmidii99/EloCompare",
-  images: ["elo1.png", "elo2.png", "elo3.png", "elo4.png", "elo5.png"],
   cover: "elocompare.png",
   markdownFile: "https://raw.githubusercontent.com/Schmidii99/EloCompare/refs/heads/main/README.md"
 }
