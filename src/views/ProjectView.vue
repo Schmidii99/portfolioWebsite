@@ -46,9 +46,14 @@ onBeforeMount(() => {
 
 <template>
   <div v-if="projectsData">
-    <RouterLink to="/" class="text-slate-600 hover:text-blue-800 hover:cursor-pointer hover:underline flex flex-row items-center">
-      ← Back to the projects
-    </RouterLink>
+    <div class="flex w-full flex-row justify-between">
+      <RouterLink to="/" class="text-slate-600 hover:text-blue-800 hover:cursor-pointer hover:underline flex flex-row items-center">
+        ← Back to the projects
+      </RouterLink>
+      <a v-show="projectsData.sourceCode" :href="projectsData.sourceCode" class="text-slate-600 hover:text-blue-800 hover:cursor-pointer hover:underline flex flex-row items-center">
+        To the sourcecode →
+      </a>
+    </div>
     <h1 class="font-[BBH_Bogle] text-6xl mb-2">{{ projectsData?.title || 'Project' }}</h1>
     <div class="flex flex-row mb-8 space-x-2">
       <TagDisplay v-for="tag in projectsData?.tags || []" :tag="tag" />
