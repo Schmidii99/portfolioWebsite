@@ -41,10 +41,16 @@ onMounted(() => {
 </template>
 
 <style scoped>
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 img {
   -webkit-filter: invert(1) grayscale(1) contrast(100%);
   filter: invert(1) grayscale(1) contrast(100%) ;
-  mix-blend-mode: multiply;
 }
 
 .custom-border {
@@ -53,11 +59,13 @@ img {
 }
 
 .custom-border:hover {
+  -o-border-image: -o-linear-gradient(315deg, #FC466B 0%, #3F5EFB 100%) 40;
   border-image: linear-gradient(135deg, #FC466B 0%, #3F5EFB 100%) 40;
   border-width: 1px;
 }
 
 .custom-border-active {
+  -o-border-image: -o-linear-gradient(315deg, #FC466B 0%, #3F5EFB 100%) 40;
   border-image: linear-gradient(135deg, #FC466B 0%, #3F5EFB 100%) 40;
   border-width: 1px;
 }

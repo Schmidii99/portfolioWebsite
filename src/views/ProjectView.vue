@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ImageViewer from '@/components/ImageViewer.vue'
-import { onBeforeMount, onMounted, type Ref, ref } from 'vue'
+import { onBeforeMount, type Ref, ref } from 'vue'
 import * as projects from '@/data/projects.ts'
 import { useRouter } from 'vue-router'
 import type Project from '@/types/Project.ts'
@@ -50,15 +50,15 @@ onBeforeMount(() => {
       <RouterLink to="/" class="text-slate-600 hover:text-blue-800 hover:cursor-pointer hover:underline flex flex-row items-center">
         ← Back to the projects
       </RouterLink>
-      <a v-show="projectsData.sourceCode" :href="projectsData.sourceCode" class="text-slate-600 hover:text-blue-800 hover:cursor-pointer hover:underline flex flex-row items-center">
+      <a v-show="(projectsData as Project).sourceCode" :href="(projectsData as Project).sourceCode" class="text-slate-600 hover:text-blue-800 hover:cursor-pointer hover:underline flex flex-row items-center">
         To the sourcecode →
       </a>
     </div>
-    <h1 class="font-[BBH_Bogle] text-6xl mb-2">{{ projectsData?.title || 'Project' }}</h1>
+    <h1 class="font-[BBH_Bogle] text-6xl mb-2">{{ (projectsData as Project)?.title || 'Project' }}</h1>
     <div class="flex flex-row mb-8 space-x-2">
-      <TagDisplay v-for="tag in projectsData?.tags || []" :tag="tag" />
+      <TagDisplay v-for="tag in (projectsData as Project)?.tags || []" :tag="tag" />
     </div>
-    <ImageViewer v-if="projectsData.images && projectsData.images.length > 0" :images="projectsData.images" />
+    <ImageViewer v-if="(projectsData as Project).images && (projectsData as Project).images!.length > 0" :images="(projectsData as Project).images" />
     <MardownComponent v-if="markdownFileContent" :source="markdownFileContent"/>
   </div>
   <NotFoundView v-if="!projectsData" />
