@@ -14,7 +14,9 @@ const router = useRouter()
 let projectsData: Project | null = null;
 
 onBeforeMount(() => {
-  const currentRoute: string = router.currentRoute.value.fullPath;
+  let currentRoute: string = router.currentRoute.value.fullPath;
+  if (currentRoute.includes("#"))
+    currentRoute = currentRoute.split("#")[0]!;
 
   const p = Object.values(projects).find((p) => {
     if (currentRoute === getProjectLink(p)) {

@@ -16,9 +16,15 @@ function postProcessing() {
     return;
   }
 
+  if (postProcessElement(baseEl.value))
+    postProcessing();
+}
+
+/* Returns if elements were added to the dom */
+function postProcessElement(el: HTMLElement): boolean {
   let addedElements = false;
 
-  const allEls: HTMLCollection = baseEl.value.children.item(0)!.children
+  const allEls: HTMLCollection = el.children.item(0)!.children
   for (let i = 0; i < allEls.length; i++) {
     const el = allEls.item(i);
     if (!el) {
@@ -28,7 +34,13 @@ function postProcessing() {
     // postprocess image sources
     if (el instanceof HTMLImageElement) {
       if (el.src.startsWith("https://github.com/")) {
-        el.src.replace("https://github.com/", "https://raw.githubusercontent.com/")
+        el.src += "?raw=true";
+      }
+    }
+    else if (el.children.length == 1 && el.children.item(0) instanceof HTMLImageElement) {
+      const imgTag: HTMLImageElement = el.children.item(0)! as HTMLImageElement;
+      if (imgTag.src.startsWith("https://github.com/")) {
+        imgTag.src += "?raw=true";
       }
     }
     // postprocess all other els
@@ -42,9 +54,7 @@ function postProcessing() {
     }
   }
 
-  if (addedElements) {
-    postProcessing();
-  }
+  return addedElements;
 }
 </script>
 
