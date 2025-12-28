@@ -1,0 +1,2 @@
+This was a project I coded during school and this was based on a tutorial made with wpf. I changed the code so that it 
+works with winForms since this was what we were using in school to learn programming.

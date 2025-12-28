@@ -45,7 +45,8 @@ export const tetris: Project = {
   tags: [t.csharp, t.dotnet],
   description: 'Tetris game made with Windows Forms in C#.',
   sourceCode: "https://github.com/Schmidii99/WindowsForms-Tetris",
-  images: ["tetris1.png", "tetris2.png", "tetris3.png"]
+  images: ["tetris1.png", "tetris2.png", "tetris3.png"],
+  markdownFile: "csharp-tetris.md"
 }
 
 export const higherLower: Project = {
@@ -63,7 +64,8 @@ export const pokedex: Project = {
   description: 'I used this project to learn SvelteKit by building a simple Pokedex app. For the data I used a public api.',
   tags: [],
   images: ["pokedex1.png", "pokedex2.png", "pokedex3.png"],
-  sourceCode: "https://github.com/Schmidii99/pokedex-sveltekit"
+  sourceCode: "https://github.com/Schmidii99/pokedex-sveltekit",
+  markdownFile: "pokedex.md"
 }
 
 export const trainingsDary: Project = {
@@ -71,7 +73,8 @@ export const trainingsDary: Project = {
   description: '',
   tags: [t.java, t.postgres],
   sourceCode: "https://github.com/Schmidii99/TrainingsDiary/tree/main",
-  images: ["td1.png", "td2.png", "td3.png", "td4.png"]
+  images: ["td1.png", "td2.png", "td3.png", "td4.png"],
+  markdownFile: "trainingsdiary.md"
 }
 
 export const eloCompare: Project = {
@@ -88,7 +91,7 @@ export const eloCompare: Project = {
 export const ultimateTicTacToe: Project = {
   title: 'Ultimate Tic Tac Toe Game',
   description: 'Ultimate tic tac toe game in c# using WinForms.',
-  tags: [],
+  tags: [t.dotnet, t.csharp],
   images: ["utt1.png", "utt2.png", "utt3.png", "utt4.png", "utt5.png"],
   sourceCode: "https://github.com/Schmidii99/TicTacToe-Ultimate"
 }
