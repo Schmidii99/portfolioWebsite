@@ -92,6 +92,11 @@ const buttons = [
 .customcss:nth-child(9) {animation-delay: 1s;}
 .customcss:nth-child(10) {animation-delay: 1.2s;}
 
+/*
+Styles copied from LittleLink:
+https://github.com/sethcottle/littlelink
+ */
+
 .gitea {
   color: #000000;
   background-color: #ffffff;
@@ -117,6 +122,11 @@ const buttons = [
   color: #ffffff;
   background-image: linear-gradient(-135deg, #1400c8, #b900b4, #f50000);
 }
+
+/*
+Stars background copied from:
+https://codepen.io/mattmarble/pen/qBdamQz
+*/
 
 #stars {
   width: 1px;
