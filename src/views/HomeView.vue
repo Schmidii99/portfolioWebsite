@@ -66,7 +66,7 @@ const buttons = [
 </template>
 
 <style scoped>
-@import '@/css/custom.css';
+@import '@/assets/custom.css';
 
 .projects {
   box-shadow: rgba(255, 255, 255, 0.56) 0 0 80px 1px;

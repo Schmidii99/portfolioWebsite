@@ -1,10 +1,10 @@
 import type Project from '@/types/Project.ts'
 import * as t from '@/data/tags.ts'
 
-export const protfolioTemplate: Project = {
+export const portfolioWebsite: Project = {
   title: 'Portfolio Website',
   description: 'A website to showcase my projects and technologies that I have worked with.',
-  tags: [t.vue, t.tailwindcss],
+  tags: [t.vue, t.tailwindcss, t.typescript],
   images: ["portfolio.png"],
   sourceCode: "https://github.com/Schmidii99/portfolioWebsite"
 }
@@ -15,7 +15,7 @@ export const floslabs: Project = {
   sourceCode: "https://github.com/Schmidii99/Brettspiele.io",
   url: "https://floslabs.de",
   cover: "floslabs.jpeg",
-  tags: [t.vue, t.redis, t.deno, t.docker, t.nginx],
+  tags: [t.vue, t.redis, t.deno, t.docker, t.nginx, t.typescript],
   images: ["floslabs1.jpeg", "floslabs3.jpeg", "floslabs2.jpeg", 'floslabs4.jpeg', "floslabs5.jpeg"],
   markdownFile: "floslabs.md",
   featured: true
@@ -24,7 +24,7 @@ export const floslabs: Project = {
 export const kleinanzeigenPlus: Project = {
   title: 'Kleinanzeigen Plus',
   description: 'A desktop app of the german website "Kleinanzeigen" with extra features.',
-  tags: [t.sveltekit, t.tauri, t.rust, t.tailwindcss, t.sqlite],
+  tags: [t.sveltekit, t.tauri, t.rust, t.tailwindcss, t.sqlite, t.typescript],
   images: ["kp1.png", "kp2.png", "kp3.png", "kp4.png", "kp5.png", "kp6.png", "kp7.png", "kp8.png", "kp9.png", "kp10.png",
            "kp11.png"],
   featured: true,
@@ -62,7 +62,7 @@ export const higherLower: Project = {
 export const pokedex: Project = {
   title: 'Pokedex app',
   description: 'I used this project to learn SvelteKit by building a simple Pokedex app. For the data I used a public api.',
-  tags: [],
+  tags: [t.sveltekit, t.typescript],
   images: ["pokedex1.png", "pokedex2.png", "pokedex3.png"],
   sourceCode: "https://github.com/Schmidii99/pokedex-sveltekit",
   markdownFile: "pokedex.md"
@@ -80,7 +80,7 @@ export const trainingsDary: Project = {
 export const eloCompare: Project = {
   title: 'Elo Comparison Tool',
   description: 'Elo Comparison Tool to self host using docker compose.',
-  tags: [t.docker, t.fastapi, t.python, t.vue, t.tailwindcss],
+  tags: [t.docker, t.fastapi, t.python, t.vue, t.tailwindcss, t.typescript],
   url: "selfhosted",
   sourceCode: "https://github.com/Schmidii99/EloCompare",
   cover: "elocompare.png",
@@ -88,13 +88,13 @@ export const eloCompare: Project = {
   featured: true
 }
 
-export const ultimateTicTacToe: Project = {
+/*export const ultimateTicTacToe: Project = {
   title: 'Ultimate Tic Tac Toe Game',
   description: 'Ultimate tic tac toe game in c# using WinForms.',
   tags: [t.dotnet, t.csharp],
   images: ["utt1.png", "utt2.png", "utt3.png", "utt4.png", "utt5.png"],
   sourceCode: "https://github.com/Schmidii99/TicTacToe-Ultimate"
-}
+}*/
 
 export const rplace: Project = {
   title: 'Reddit Place 2023',
