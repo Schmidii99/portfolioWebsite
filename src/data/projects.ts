@@ -25,8 +25,10 @@ export const kleinanzeigenPlus: Project = {
   title: 'Kleinanzeigen Plus',
   description: 'A desktop app of the german website "Kleinanzeigen" with extra features.',
   tags: [t.sveltekit, t.tauri, t.rust, t.tailwindcss, t.sqlite],
-  images: ["kp1.png", "kp2.png", "kp3.png", "kp4.png", "kp5.png", "kp6.png", "kp7.png"],
-  featured: true
+  images: ["kp1.png", "kp2.png", "kp3.png", "kp4.png", "kp5.png", "kp6.png", "kp7.png", "kp8.png", "kp9.png", "kp10.png",
+           "kp11.png"],
+  featured: true,
+  markdownFile: "kleinanzeigenplus.md"
 }
 
 export const mandelbrot: Project = {
@@ -40,7 +42,7 @@ export const mandelbrot: Project = {
 
 export const tetris: Project = {
   title: 'Tetris in WinForms',
-  tags: [t.csharp],
+  tags: [t.csharp, t.dotnet],
   description: 'Tetris game made with Windows Forms in C#.',
   sourceCode: "https://github.com/Schmidii99/WindowsForms-Tetris",
   images: ["tetris1.png", "tetris2.png", "tetris3.png"]
@@ -52,7 +54,8 @@ export const higherLower: Project = {
   tags: [t.typescript],
   sourceCode: "https://github.com/Schmidii99/CpuHigherLower",
   url: "https://icaotix.github.io",
-  images: ["hl1.png", "hl2.png", "hl3.png"]
+  images: ["hl1.png", "hl2.png", "hl3.png"],
+  markdownFile: "cpuhigherlower.md"
 }
 
 export const pokedex: Project = {
@@ -78,7 +81,8 @@ export const eloCompare: Project = {
   url: "selfhosted",
   sourceCode: "https://github.com/Schmidii99/EloCompare",
   cover: "elocompare.png",
-  markdownFile: "https://raw.githubusercontent.com/Schmidii99/EloCompare/refs/heads/main/README.md"
+  markdownFile: "https://raw.githubusercontent.com/Schmidii99/EloCompare/refs/heads/main/README.md",
+  featured: true
 }
 
 export const ultimateTicTacToe: Project = {

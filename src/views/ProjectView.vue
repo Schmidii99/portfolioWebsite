@@ -45,7 +45,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <div v-if="projectsData">
+  <div v-if="projectsData" class="pb-16">
     <div class="flex w-full flex-row justify-between">
       <RouterLink to="/" class="text-slate-600 hover:text-blue-800 hover:cursor-pointer hover:underline flex flex-row items-center">
         ← Back to the projects
