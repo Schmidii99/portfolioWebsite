@@ -47,7 +47,7 @@ onBeforeMount(() => {
 <template>
   <div v-if="projectsData" class="pb-16">
     <div class="flex w-full flex-row justify-between">
-      <RouterLink to="/" class="text-slate-600 hover:text-blue-800 hover:cursor-pointer hover:underline flex flex-row items-center">
+      <RouterLink to="/projects/" class="text-slate-600 hover:text-blue-800 hover:cursor-pointer hover:underline flex flex-row items-center">
         ← Back to the projects
       </RouterLink>
       <a v-show="(projectsData as Project).sourceCode" :href="(projectsData as Project).sourceCode" class="text-slate-600 hover:text-blue-800 hover:cursor-pointer hover:underline flex flex-row items-center">
