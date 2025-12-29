@@ -5,7 +5,7 @@ import ProjectsOverview from '@/components/ProjectsOverview.vue'
 </script>
 
 <template>
-  <main class="w-full h-full flex flex-col">
+  <main class="w-full h-full flex flex-col mt-8">
     <h1 class="font-[BBH_Bogle] text-6xl">My Projects</h1>
     <divider class="bg-white"/>
     <h3 class="text-2xl mt-16 mb-4">Technologies</h3>

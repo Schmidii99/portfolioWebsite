@@ -26,7 +26,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div :class="'m-1 p-1 flex flex-col justify-center items-center lg:w-24 lg:h-24 w-16 h-16 aspect-square custom-border hover:cursor-pointer ' + (active ? 'custom-border-active' : '')"
+  <div :class="'m-1 p-1 flex flex-col justify-center items-center lg:w-24 lg:h-24 w-16 h-16 aspect-square lg:hover:border-[1px] hover:cursor-pointer ' + (active ? 'custom-border-active' : '')"
   @click="handleClick">
     <div class="lg:w-12 lg:h-12 w-8 h-8 mb-2 flex justify-center items-center">
       <img
@@ -54,14 +54,13 @@ img {
 }
 
 .custom-border {
-  border: 1px solid transparent; /* Keeps layout stable so it doesn't jump on hover */
+  border: 0 solid transparent; /* Keeps layout stable so it doesn't jump on hover */
   padding: 5px;
   transition: border-image 0.3s; /* Optional: smooths the transition */
+  border-image: linear-gradient(135deg, #FC466B 0%, #3F5EFB 100%) 1;
 }
 
-.custom-border:hover,
 .custom-border-active {
-  border-style: solid;
   border-width: 1px;
   /* Reduced the slice value to '1' so it stretches the gradient across the whole side */
   border-image: linear-gradient(135deg, #FC466B 0%, #3F5EFB 100%) 1;
