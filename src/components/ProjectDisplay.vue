@@ -28,7 +28,7 @@ function getCoverImage(): string {
 
 <template>
   <div
-    :class="'bg-white rounded-3xl h-fit flex flex-col text-black mr-4 relative ' + (doesProjectHaveDetails(project) ? 'hover:cursor-pointer' : '')"
+    :class="'bg-white rounded-3xl h-fit flex flex-col text-black lg:mr-4 relative ' + (doesProjectHaveDetails(project) ? 'hover:cursor-pointer' : '')"
     @click="
       async () => {
         if (doesProjectHaveDetails(project))
@@ -47,14 +47,14 @@ function getCoverImage(): string {
 
     <div class="flex flex-col m-2">
       <h3 class="text-xl font-bold mb-2 text-slate-900 font-[Murecho]">{{ project.title }}</h3>
-      <p class="text-slate-700 text-base h-12 text-ellipsis">{{ project.description }}</p>
+      <p class="text-slate-700 text-base h-fit min-h-12 text-ellipsis">{{ project.description }}</p>
     </div>
 
-    <div class="m-4 flex flex-row space-x-2 w-full overflow-scroll h-6">
+    <div class="m-4 flex flex-row space-x-2 lg:space-y-0 w-full flex-wrap lg:flex-nowrap lg:overflow-hidden">
       <TagDisplay v-for="tag in project.tags.sort((a, b) => a.name.localeCompare(b.name))" :tag="tag" />
     </div>
 
-    <div class="flex flex-row m-4 justify-between">
+    <div class="flex flex-row m-4 space-x-4 lg:space-x-0 justify-between">
       <ProjectLink v-if="project.url && project.url !== 'selfhosted'" :link="project.url || ''">
         <span>View Page</span>
         <svg
