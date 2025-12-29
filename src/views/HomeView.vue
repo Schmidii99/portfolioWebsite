@@ -30,14 +30,14 @@ const buttons = [
   <div id="stars"></div>
   <div id="stars2"></div>
   <div id="stars3"></div>
-  <div class="w-full flex flex-col justify-center items-center pt-16">
+  <div class="w-full flex flex-col justify-center items-center pt-4 lg:pt-16">
       <div class="flex w-full h-full flex-col items-center space-y-4 linkBox">
         <img src="/images/avatar@4x.png"
              srcset="/images/avatar@8x.png 2x, /images/avatar@16x.png 4x"
              alt="Florian Schmid Profile Picture"
-             class="rounded-full w-64 h-64 mb-4 z-10">
+             class="rounded-full w-48 h-48 lg:w-64 lg:h-64 mb-4 z-10">
 
-        <h1 class="text-6xl font-bold">Florian Luca Schmid</h1>
+        <h1 class="lg:text-6xl text-2xl font-bold text-center">Florian Luca Schmid</h1>
 
         <p class="mb-8">
           Student and Developer from Germany -
